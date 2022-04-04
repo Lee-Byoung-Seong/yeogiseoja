@@ -87,6 +87,26 @@ public class OwnerCommand {
     @Getter
     @Builder
     @ToString
+    public static class LoginOwnerRequest {
+        private final String email;
+        private final String password;
+
+        public Owner toEntity() {
+            Policy policy = new Policy(
+                    new EmailPolicy(email),
+                    new PasswordPolicy(password)
+            );
+            policy.executePolicyStrategy();
+            return Owner.builder()
+                    .email(email)
+                    .password(password)
+                    .build();
+        }
+    }
+
+    @Getter
+    @Builder
+    @ToString
     public static class RegisterOwnerRequest {
         private final String representationName;
         private final String email;

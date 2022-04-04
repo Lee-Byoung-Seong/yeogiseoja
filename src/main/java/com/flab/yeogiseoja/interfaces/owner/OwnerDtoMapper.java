@@ -15,4 +15,7 @@ import org.mapstruct.ReportingPolicy;
 public interface OwnerDtoMapper {
     OwnerCommand.RegisterOwnerRequest of(OwnerDto.RegisterOwnerRequest request);
     OwnerDto.summaryOwnerResponse of(OwnerInfo.OwnerSummaryInfo response);
+
+    OwnerCommand.UpdateOwnerRequest of(OwnerDto.UpdateOwnerRequest request);
+
 }

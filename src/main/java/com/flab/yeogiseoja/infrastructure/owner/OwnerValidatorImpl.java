@@ -71,4 +71,9 @@ public class OwnerValidatorImpl implements OwnerValidator {
         var owner = ownerReader.findByEmail(ownerEmail);
         if (owner.isPresent()) throw new IllegalArgumentException(ErrorCode.DUPLICATE_EMAIL.getErrorMsg());
     }
+
+    private void checkIsVerified(String ownerEmail) {
+        var owner = ownerReader.getByEmail(ownerEmail);
+        owner.isVerifiedOwner(owner.getStatus());
+    }
 }

@@ -21,6 +21,8 @@ public enum ErrorCode {
     DETAIL_ADDRESS_IS_EMPTY("상세 주소를 입력하지 않으셨습니다"),
     STATE_IS_EMPTY("지역을 입력하지 않으셨습니다"),
     CITY_IS_EMPTY("도시를 입력하지 않으셨습니다"),
+    ALREADY_REMOVE_OWNER("한번 삭제된 Owner 는 다시 검증할 수 없습니다"),
+    NOT_AUTH_USER("인증 되지 않은 회원입니다."),
     AUTH_TOKEN_CONFIRM_FAIL("인증 토큰을 확인해주세요"),
     PASSWORD_CONFIRM_FAIL("비빌번호가 맞지 않습니다"),
     NICKNAME_IS_EMPTY("닉네임을 입력하지 않으셨습니다"),

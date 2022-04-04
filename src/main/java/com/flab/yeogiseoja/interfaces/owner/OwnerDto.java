@@ -41,6 +41,25 @@ public class OwnerDto {
     @Getter
     @Setter
     @ToString
+    public static class UpdateOwnerRequest{
+        @Email(message = "email 형식에 맞아야 합니다")
+        @NotEmpty(message = "email 은 필수값입니다")
+        private String email;
+        private String password;
+
+        @PhoneNumber
+        private String phoneNumber;
+        private String depositBankCode;
+        private String depositAccountNumber;
+        private String depositAccountHolderName;
+        private String settledBankCode;
+        private String settledAccountNumber;
+        private String settledAccountHolderName;
+    }
+
+    @Getter
+    @Setter
+    @ToString
     public static class summaryOwnerResponse{
         private long ownerId;
         private String email;

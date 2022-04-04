@@ -98,9 +98,14 @@ public class Owner extends AbstractEntity {
         return true;
     }
 
+    public boolean isVerifiedOwner(Status status){
+        Assert.isTrue(status==Status.AUTH_COMPLETE,ErrorCode.NOT_AUTH_USER.getErrorMsg());
+        return true;
+    }
+
     public void verified() {
-        if (this.status == Status.DELETED) throw new RuntimeException("한번 삭제된 Owner 는 다시 검증할 수 없습니다");
-        if (this.status != Status.AUTH_COMPLETE) throw new RuntimeException();
+        if (this.status == Status.DELETED) throw new IllegalArgumentException(ErrorCode.ALREADY_REMOVE_USER.getErrorMsg());
+        if (this.status != Status.AUTH_COMPLETE) throw new IllegalArgumentException(ErrorCode.NOT_AUTH_USER.getErrorMsg());
 
         this.status = Status.VERIFIED;
         this.verifiedAt = LocalDateTime.now();

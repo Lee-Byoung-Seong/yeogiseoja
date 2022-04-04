@@ -17,4 +17,9 @@ public class OwnerFacade {
         var owner = ownerService.registerOwner(ownerCommand);
         return owner;
     }
+
+    public OwnerInfo.OwnerSummaryInfo updateOwner(OwnerCommand.UpdateOwnerRequest ownerCommand){
+        var owner = ownerService.updateOwner(ownerCommand);
+        return owner;
+    }
 }

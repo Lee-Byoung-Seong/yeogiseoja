@@ -22,14 +22,22 @@ public class OwnerApiController {
     private final OwnerFacade ownerFacade;
     private final OwnerDtoMapper ownerDtoMapper;
 
-    @PostMapping("/init")
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public CommonResponse registerOrder(@RequestBody @Valid OwnerDto.RegisterOwnerRequest request) {
+    public CommonResponse registerOwner(@RequestBody @Valid OwnerDto.RegisterOwnerRequest request) {
         var ownerCommand = ownerDtoMapper.of(request);
         var ownerInfo = ownerFacade.registerOwner(ownerCommand);
         var response = ownerDtoMapper.of(ownerInfo);
         return CommonResponse.success(response, NormalCode.REQUIRE_AUTH.getNormalMsg());
     }
+
+    @PostMapping("/update")
+    @ResponseStatus(HttpStatus.OK)
+    public CommonResponse updateOwner(@RequestBody @Valid OwnerDto.UpdateOwnerRequest request){
+        var ownerCommand = ownerDtoMapper.of(request);
+        return null;
+    }
+
 
 
 }
